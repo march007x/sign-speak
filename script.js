@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Render Vocab Buttons
   renderVocabButtons();
+  // Show demo visual for the first vocab item on load
+  selectVocab(0);
 
   // Initialize AI
   initAIModel(videoElement, canvasElement, handleCorrectGesture);
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     sendToGoogleSheets(payload);
-    
+
     // Switch to Learning Page
     navbar.classList.remove("hidden");
     switchPage("learning-page");
@@ -60,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const target = btn.getAttribute("data-target");
-      
+
       navBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
@@ -120,6 +122,12 @@ function selectVocab(index) {
   const vocab = VOCABULARY[index];
   document.getElementById("target-word").textContent = vocab.word;
   document.getElementById("gesture-instruction").textContent = vocab.instruction;
+
+  // Update the example/demo visual for the current gesture
+  const demoContainer = document.getElementById("gesture-demo");
+  if (demoContainer && vocab.demoSVG) {
+    demoContainer.innerHTML = vocab.demoSVG;
+  }
 }
 
 // Handle AI Correct Detect Action
