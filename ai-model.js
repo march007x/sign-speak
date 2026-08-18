@@ -4,19 +4,55 @@ const VOCABULARY = [
     id: "hello",
     word: "สวัสดี (Hello)",
     instruction: "กางนิ้วมือทั้ง 5 ออก และหันฝ่ามือเข้าหากล้อง",
-    detect: (landmarks) => isHandOpen(landmarks)
+    detect: (landmarks) => isHandOpen(landmarks),
+    // ไอคอนตัวอย่างท่าทาง (SVG แบบง่าย แสดงมือกางนิ้วทั้ง 5)
+    demoSVG: `
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round">
+          <line x1="32" y1="40" x2="18" y2="14"/>
+          <line x1="32" y1="40" x2="26" y2="10"/>
+          <line x1="32" y1="40" x2="34" y2="9"/>
+          <line x1="32" y1="40" x2="42" y2="11"/>
+          <line x1="32" y1="40" x2="48" y2="20"/>
+        </g>
+        <rect x="20" y="38" width="24" height="18" rx="8" fill="var(--accent-color)" opacity="0.85"/>
+      </svg>`
   },
   {
     id: "love",
     word: "รัก / I Love You",
     instruction: "ชู นิ้วโป้ง, นิ้วชี้ และ นิ้วก้อย ออกมา (พับนิ้วกลางและนิ้วนาง)",
-    detect: (landmarks) => isILoveYouSign(landmarks)
+    detect: (landmarks) => isILoveYouSign(landmarks),
+    // ไอคอนตัวอย่างท่าทาง (ชูโป้ง ชี้ ก้อย พับกลาง-นาง)
+    demoSVG: `
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round">
+          <line x1="32" y1="40" x2="16" y2="24"/>
+          <line x1="32" y1="40" x2="24" y2="10"/>
+          <circle cx="30" cy="34" r="3" fill="var(--text-muted)" stroke="none"/>
+          <circle cx="36" cy="34" r="3" fill="var(--text-muted)" stroke="none"/>
+          <line x1="32" y1="40" x2="48" y2="14"/>
+        </g>
+        <rect x="20" y="38" width="24" height="18" rx="8" fill="var(--accent-color)" opacity="0.85"/>
+      </svg>`
   },
   {
     id: "thanks",
     word: "ขอบคุณ (Thank You)",
     instruction: "พับนิ้วโป้งลง และแบมือขนานแนวนอนเข้าหากล้อง",
-    detect: (landmarks) => isFlatHand(landmarks)
+    detect: (landmarks) => isFlatHand(landmarks),
+    // ไอคอนตัวอย่างท่าทาง (แบมือแนวนอน พับโป้ง)
+    demoSVG: `
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="var(--primary-color)" stroke-width="4" stroke-linecap="round">
+          <line x1="20" y1="34" x2="20" y2="16"/>
+          <line x1="26" y1="34" x2="26" y2="12"/>
+          <line x1="32" y1="34" x2="32" y2="10"/>
+          <line x1="38" y1="34" x2="38" y2="12"/>
+          <line x1="44" y1="34" x2="44" y2="16"/>
+        </g>
+        <rect x="16" y="32" width="32" height="20" rx="8" fill="var(--accent-color)" opacity="0.85"/>
+      </svg>`
   }
 ];
 
