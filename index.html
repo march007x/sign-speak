@@ -6,7 +6,7 @@
   <title>Sign Speak - เรียนรู้ภาษามือด้วย AI</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+
   <!-- MediaPipe Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
@@ -84,6 +84,12 @@
           <div class="gesture-info">
             <h2 id="current-word-title">คำศัพท์: <span id="target-word">สวัสดี</span></h2>
             <p id="gesture-instruction">กางนิ้วมือทั้ง 5 ออก หันฝ่ามือเข้าหากล้อง</p>
+
+            <!-- Example / Demo visual of the correct hand shape -->
+            <div class="gesture-demo-wrapper">
+              <span class="demo-label">ตัวอย่างท่าทาง</span>
+              <div id="gesture-demo" class="gesture-demo"></div>
+            </div>
           </div>
 
           <div class="video-wrapper">
